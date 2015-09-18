@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sharrett</title>
+
+    <style>
+        .bt {
+            padding: 10px 20px;
+            border-radius: 5px;
+            display: inline-block;
+            font-family: sans-serif;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.2s ease-in-out;
+        }
+
+        .bt:hover {
+            transform: scale(0.9);
+        }
+
+        .bt--facebook {
+            background-color: #3A5795;
+            color: #fff;
+        }
+
+        .bt--twitter {
+            background-color: #55ACEE;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="bt bt--facebook">Facebook</div>
+    <div class="bt bt--twitter">Twitter</div>
+    <div class="bt bt--facebook">Facebook</div>
+    <div class="bt bt--twitter">Twitter</div>
+
+
+    <script src="src/sharrett.js"></script>
+    <script>
+        Sharrett('.bt--facebook');
+    </script>
+</body>
+</html>
