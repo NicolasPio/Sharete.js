@@ -2,7 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Sharrett</title>
+    <title>Sharete.js - Customize you socail buttons</title>
+    <meta name="description" content="Create your social share buttons easily customizable" />
+
+    <meta property="og:title" content="Sharete.js - Customize you socail buttons" />
+    <meta property="og:type" content="video.movie" />
+    <meta property="og:url" content="http://www.imdb.com/title/tt0117500/" />
+    <meta property="og:image" content="http://ia.media-imdb.com/images/rock.jpg" />
 
     <style>
         .bt {
@@ -40,7 +46,9 @@
 
     <script src="src/sharete.js"></script>
     <script>
-        Sharete('.bt--facebook');
+        Sharete('.bt--facebook').facebook({
+            appId: '145634995501895'
+        });
     </script>
 </body>
 </html>

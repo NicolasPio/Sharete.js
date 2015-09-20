@@ -18,7 +18,7 @@ First add Sharete in your HTML
 Share current page without customization of title or image. By default the library get current title and description of your page, and og:image if exists.
 
 ```javascript
-Sharete('.bt--facebook').facebook();
+Sharete('.bt--facebook').facebook({ appId: '123456789' });
 Sharete('.bt--twitter').twitter();
 Sharete('.bt--gplus').gplus();
 ```
@@ -27,11 +27,6 @@ Sharete('.bt--gplus').gplus();
 API with all possible data so far customizable
 
 ```javascript
-Sharete('.bt--facebook').facebook({
-  'title': 'My Page',
-  'image': 'http://dummyimage.com/500x450.jpg'
-});
-
 Sharete('.bt--twitter').twitter({
   'title': 'Visite my page',
   'url': 'http://mypage-example.com',
@@ -42,7 +37,7 @@ Sharete('.bt--twitter').twitter({
 ## Supported social networks
 Did not find social network what you need? Create a [issue](https://github.com/NicolasPio/Sharete/issues/new)
 
-- ~~Facebook~~
+- Facebook
 - ~~Twitter~~
 - ~~Google+~~
 - ~~Pinterest~~

@@ -16,8 +16,10 @@
         }
 
         this.currentElement = null;
+        this.currentUrl = window.location.href;
+        this.pageTitle = document.querySelector('title').text;
+
         this.setElement( selector );
-        this.watchElement();
     }
 
     /**
@@ -39,6 +41,53 @@
      */
     Sharete.prototype.getElement = function() {
         return this.currentElement;
+    };
+
+    Sharete.prototype.eventClick = function( linkToShare ) {
+
+        if( !linkToShare ) {
+            return;
+        }
+
+        this.currentElement.forEach(function(el) {
+
+            el.addEventListener('click',function() {
+                window.open( linkToShare, '_blank' );
+            });
+        });
+    };
+
+    /**
+     * Share on Facebook
+     * @return {void}
+     *
+     * todo:
+     * - Customize data to share
+     */
+    Sharete.prototype.facebook = function(obj) {
+
+        try {
+            if( typeof obj != 'object' ) {
+                throw new Error('Param bad format');
+            }
+        } catch (e) {
+            console.log( e );
+        }
+
+        try {
+            if( !obj.appId ) {
+                throw new Error('Facebook app_id not found');
+            }
+        } catch(e) {
+            console.log( e );
+        }
+
+        var share = 'https://www.facebook.com/dialog/share';
+            share += '?app_id=' + obj.appId;
+            share += '&href=' + encodeURI( this.currentUrl );
+            share += '&redirect_uri='  + encodeURI( this.currentUrl );
+
+        this.eventClick( share );
     };
 
     // Expose Sharete to global scope
