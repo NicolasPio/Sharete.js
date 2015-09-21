@@ -46,9 +46,12 @@
 
     <script src="src/sharete.js"></script>
     <script>
-        Sharete('.bt--facebook').facebook({
-            appId: '145634995501895'
+
+        Sharete.config({
+            facebookAppId: '145634995501895'
         });
+
+        Sharete('.bt--facebook').facebook();
     </script>
 </body>
 </html>

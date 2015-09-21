@@ -4,22 +4,23 @@
  *
  * @author Nicolas Pio <nicolaspiof@gmail.com>
  */
-(function () {
+(function() {
     'use strict';
 
-    function Sharete( selector ) {
+    function Sharete(selector) {
 
         // Use this library like jQuery
         // e.g Sharete('.selector')
         if (!this) {
-            return new Sharete( selector );
+            return new Sharete(selector);
         }
 
         this.currentElement = null;
         this.currentUrl = window.location.href;
         this.pageTitle = document.querySelector('title').text;
+        this.config2 = null;
 
-        this.setElement( selector );
+        this.setElement(selector);
     }
 
     /**
@@ -28,9 +29,9 @@
      * @param  {String} selector
      * @return {void}
      */
-    Sharete.prototype.setElement = function( selector ) {
-        var nodeList = document.querySelectorAll( selector ),
-            currentElement = Array.prototype.slice.call( nodeList );
+    Sharete.prototype.setElement = function(selector) {
+        var nodeList = document.querySelectorAll(selector),
+            currentElement = Array.prototype.slice.call(nodeList);
 
         this.currentElement = currentElement;
     };
@@ -43,18 +44,27 @@
         return this.currentElement;
     };
 
-    Sharete.prototype.eventClick = function( linkToShare ) {
+    Sharete.prototype.eventClick = function(linkToShare) {
 
-        if( !linkToShare ) {
+        if (!linkToShare) {
             return;
         }
 
         this.currentElement.forEach(function(el) {
 
-            el.addEventListener('click',function() {
-                window.open( linkToShare, '_blank' );
+            el.addEventListener('click', function() {
+                window.open(linkToShare, '_blank');
             });
         });
+    };
+
+    Sharete.config = function(obj) {
+
+        if ( !obj ) {
+            return;
+        }
+
+        this.config2 = obj;
     };
 
     /**
@@ -64,30 +74,22 @@
      * todo:
      * - Customize data to share
      */
-    Sharete.prototype.facebook = function(obj) {
+    Sharete.prototype.facebook = function() {
 
         try {
-            if( typeof obj != 'object' ) {
-                throw new Error('Param bad format');
-            }
-        } catch (e) {
-            console.log( e );
-        }
-
-        try {
-            if( !obj.appId ) {
+            if (!this.config2.facebookAppId) {
                 throw new Error('Facebook app_id not found');
             }
-        } catch(e) {
-            console.log( e );
+        } catch (e) {
+            console.log(e);
         }
 
         var share = 'https://www.facebook.com/dialog/share';
-            share += '?app_id=' + obj.appId;
-            share += '&href=' + encodeURI( this.currentUrl );
-            share += '&redirect_uri='  + encodeURI( this.currentUrl );
+        share += '?app_id=' + this.config2.facebookAppId.appId;
+        share += '&href=' + encodeURI(this.currentUrl);
+        share += '&redirect_uri=' + encodeURI(this.currentUrl);
 
-        this.eventClick( share );
+        this.eventClick(share);
     };
 
     // Expose Sharete to global scope
