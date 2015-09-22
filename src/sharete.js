@@ -18,7 +18,6 @@
         this.currentElement = null;
         this.currentUrl = window.location.href;
         this.pageTitle = document.querySelector('title').text;
-        this.config2 = null;
 
         this.setElement(selector);
     }
@@ -58,15 +57,6 @@
         });
     };
 
-    Sharete.config = function(obj) {
-
-        if ( !obj ) {
-            return;
-        }
-
-        this.config2 = obj;
-    };
-
     /**
      * Share on Facebook
      * @return {void}
@@ -74,18 +64,18 @@
      * todo:
      * - Customize data to share
      */
-    Sharete.prototype.facebook = function() {
+    Sharete.prototype.facebook = function( param ) {
 
         try {
-            if (!this.config2.facebookAppId) {
+            if (!param.appId) {
                 throw new Error('Facebook app_id not found');
             }
         } catch (e) {
-            console.log(e);
+            console.log( e );
         }
 
         var share = 'https://www.facebook.com/dialog/share';
-        share += '?app_id=' + this.config2.facebookAppId.appId;
+        share += '?app_id=' + param.appId;
         share += '&href=' + encodeURI(this.currentUrl);
         share += '&redirect_uri=' + encodeURI(this.currentUrl);
 
