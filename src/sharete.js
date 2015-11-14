@@ -4,84 +4,78 @@
  *
  * @author Nicolas Pio <nicolaspiof@gmail.com>
  */
-(function() {
-    'use strict';
+;(function () {
+  'use strict'
 
-    function Sharete(selector) {
-
-        // Use this library like jQuery
-        // e.g Sharete('.selector')
-        if (!this) {
-            return new Sharete(selector);
-        }
-
-        this.currentElement = null;
-        this.currentUrl = window.location.href;
-        this.pageTitle = document.querySelector('title').text;
-
-        this.setElement(selector);
+  function Sharete (selector) {
+    if (!this) {
+      return new Sharete(selector)
     }
 
-    /**
-     * Get element passed by user and save this element
-     * And save with Array
-     * @param  {String} selector
-     * @return {void}
-     */
-    Sharete.prototype.setElement = function(selector) {
-        var nodeList = document.querySelectorAll(selector),
-            currentElement = Array.prototype.slice.call(nodeList);
+    this.currentElement = null
+    this.currentUrl = window.location.href
+    this.pageTitle = document.querySelector('title').text
 
-        this.currentElement = currentElement;
-    };
+    this.setElement(selector)
+  }
 
-    /**
-     * Retrive element saved
-     * @return {Array}
-     */
-    Sharete.prototype.getElement = function() {
-        return this.currentElement;
-    };
+  /**
+   * Get element passed by user and save this element
+   * And save with Array
+   * @param  {String} selector
+   * @return {void}
+   */
+  Sharete.prototype.setElement = function (selector) {
+    var nodeList = document.querySelectorAll(selector)
+    var currentElement = Array.prototype.slice.call(nodeList)
 
-    Sharete.prototype.eventClick = function(linkToShare) {
+    this.currentElement = currentElement
+  }
 
-        if (!linkToShare) {
-            return;
-        }
+  /**
+   * Retrive element saved
+   * @return {Array}
+   */
+  Sharete.prototype.getElement = function () {
+    return this.currentElement
+  }
 
-        this.currentElement.forEach(function(el) {
+  Sharete.prototype.eventClick = function (linkToShare) {
+    if (!linkToShare) {
+      return
+    }
 
-            el.addEventListener('click', function() {
-                window.open(linkToShare, '_blank');
-            });
-        });
-    };
+    this.currentElement.forEach(function (el) {
+      el.addEventListener('click', function () {
+        window.open(linkToShare, '_blank')
+      })
+    })
+  }
 
-    /**
-     * Share on Facebook
-     * @return {void}
-     *
-     * todo:
-     * - Customize data to share
-     */
-    Sharete.prototype.facebook = function( param ) {
+  /**
+   * Share on Facebook
+   * @return {void}
+   *
+   * todo:
+   * - Customize data to share
+   */
+  Sharete.prototype.facebook = function (param) {
+    try {
+      if (!param.appId) {
+        throw new Error('Facebook app_id not found')
+      }
+    } catch (e) {
+      console.log(e)
+    }
 
-        try {
-            if (!param.appId) {
-                throw new Error('Facebook app_id not found');
-            }
-        } catch (e) {
-            console.log( e );
-        }
+    var share = 'https://www.facebook.com/dialog/share'
+    share += '?app_id=' + param.appId
+    share += '&href=' + encodeURI(this.currentUrl)
+    share += '&redirect_uri=' + encodeURI(this.currentUrl)
 
-        var share = 'https://www.facebook.com/dialog/share';
-        share += '?app_id=' + param.appId;
-        share += '&href=' + encodeURI(this.currentUrl);
-        share += '&redirect_uri=' + encodeURI(this.currentUrl);
+    this.eventClick(share)
+  }
 
-        this.eventClick(share);
-    };
-
-    // Expose Sharete to global scope
-    window.Sharete = Sharete;
-})();
+  // Expose Sharete to global scope
+  window.Sharete = Sharete
+})()

@@ -1,0 +1,29 @@
+{
+  "name": "sharete",
+  "version": "0.1.0",
+  "description": "Create your social share buttons easily customizable",
+  "main": "src/sharete.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "standard src/sharete.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NicolasPio/Sharete.js.git"
+  },
+  "keywords": [
+    "social",
+    "share"
+  ],
+  "author": "Nicolas Pio <nicolaspiof@gmail.com> (http://nicolaspio.com.br/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/NicolasPio/Sharete.js/issues"
+  },
+  "homepage": "https://github.com/NicolasPio/Sharete.js#readme",
+  "devDependencies": {
+    "standard": "5.3.1"
+  }
+}
