@@ -76,6 +76,26 @@
     this.eventClick(share)
   }
 
+  Sharete.prototype.twitter = function (params) {
+    var share = 'https://twitter.com/share'
+    share += '?url=' + encodeURI(this.currentUrl)
+
+    if (params !== undefined) {
+      if (typeof text === undefined) {
+        params.text = ''
+      }
+
+      if (typeof text === undefined) {
+        params.hashtags = ''
+      }
+
+      share += '&text=' + params.text
+      share += '&hashtags=' + params.hashtags
+    }
+
+    this.eventClick(share)
+  }
+
   // Expose Sharete to global scope
   window.Sharete = Sharete
 })()
