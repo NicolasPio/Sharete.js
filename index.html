@@ -47,7 +47,11 @@
     <script src="src/sharete.js"></script>
     <script>
         Sharete('.bt--facebook').facebook({ appId: '577748738964932' });
-        Sharete('.bt--twitter').twitter();
+        Sharete('.bt--twitter').twitter({
+            text: 'Sharete.js is very simple to use',
+            hashtags: 'JavaScript, newLibrary',
+            via: 'NicolasPio'
+        });
     </script>
 </body>
 </html>

@@ -1,4 +1,4 @@
-# Sharete.js (WIP)
+# Sharete.js
 > Create your social share buttons easily customizable
 
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](http://standardjs.com/)
@@ -7,8 +7,6 @@ Customize you buttons as you wish, with your CSS code.
 
 __Not__ necessary jQuery :smile:
 
-[Live demo](http://nicolaspio.github.io/Sharete.js/)
-
 ## Usage
 First add Sharete in your HTML
 
@@ -16,28 +14,38 @@ First add Sharete in your HTML
 <script async src="sharete.js"></script>
 ```
 
-In JavaScript file:
+### Simple method:
 ```javascript
 Sharete('.bt--facebook').facebook({ appId: '123456789' });
 Sharete('.bt--twitter').twitter();
 Sharete('.bt--gplus').gplus();
 ```
 
+### Complete method:
+API with all possible data so far customizable
+```javascript
+// Twitter
+Sharete('.bt--twitter').twitter({
+    text: 'Sharete.js is very simple to use',
+    hashtags: 'JavaScript, OpenSource', // Separate by comma and  without '#'
+    via: 'NicolasPio' // Mention a user
+});
+```
 ## Supported social networks
 Did not find social network what you need? Create a [issue](https://github.com/NicolasPio/Sharete.js/issues/new)
 
-- Facebook
-- ~~Twitter~~
-- ~~Google+~~
-- ~~Pinterest~~
-- ~~Linkedin~~
-- ~~Evernote~~
+- [x] Facebook
+- [x] Twitter
 
-Maybe:
-- ~~Reddit~~
-- ~~Digg~~
-- ~~Tumblr~~
-- ~~StumbleUpon~~
+Todo:
+- [ ] Google+
+- [ ] Pinterest
+- [ ] Linkedin
+- [ ] Evernote
+- [ ] Reddit
+- [ ] Digg
+- [ ] Tumblr
+- [ ] StumbleUpon
 
 ## License
 The MIT License (MIT)

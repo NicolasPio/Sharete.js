@@ -76,6 +76,14 @@
     this.eventClick(share)
   }
 
+  /**
+   * Share on Twitter
+   * @param  {Object} params - text, hashtags, via
+   * @return {void}
+   *
+   * todo:
+   * - URL param
+   */
   Sharete.prototype.twitter = function (params) {
     var share = 'https://twitter.com/share'
     share += '?url=' + encodeURI(this.currentUrl)
