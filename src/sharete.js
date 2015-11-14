@@ -40,7 +40,7 @@
     return this.currentElement
   }
 
-  Sharete.prototype.eventClick = function (linkToShare) {
+  Sharete.prototype.handleClick = function (linkToShare) {
     if (!linkToShare) {
       return
     }
@@ -73,7 +73,7 @@
     share += '&href=' + encodeURI(this.currentUrl)
     share += '&redirect_uri=' + encodeURI(this.currentUrl)
 
-    this.eventClick(share)
+    this.handleClick(share)
   }
 
   /**
@@ -101,7 +101,14 @@
       share += '&hashtags=' + params.hashtags
     }
 
-    this.eventClick(share)
+    this.handleClick(share)
+  }
+
+  Sharete.prototype.gplus = function () {
+    var share = 'https://plus.google.com/share?url='
+    share += encodeURI(this.currentUrl)
+
+    this.handleClick(share)
   }
 
   // Expose Sharete to global scope

@@ -34,6 +34,11 @@
             background-color: #55ACEE;
             color: #fff;
         }
+
+        .bt--gplus {
+            background-color: #DB4437;
+            color: #fff;
+        }
     </style>
 </head>
 <body>
@@ -42,6 +47,7 @@
     <div class="bt bt--twitter">Twitter</div>
     <div class="bt bt--facebook">Facebook</div>
     <div class="bt bt--twitter">Twitter</div>
+    <div class="bt bt--gplus">Google+</div>
 
 
     <script src="src/sharete.js"></script>
@@ -52,6 +58,7 @@
             hashtags: 'JavaScript, newLibrary',
             via: 'NicolasPio'
         });
+        Sharete('.bt--gplus').gplus();
     </script>
 </body>
 </html>

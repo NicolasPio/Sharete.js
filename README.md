@@ -36,9 +36,9 @@ Did not find social network what you need? Create a [issue](https://github.com/N
 
 - [x] Facebook
 - [x] Twitter
+- [x] Google+
 
 Todo:
-- [ ] Google+
 - [ ] Pinterest
 - [ ] Linkedin
 - [ ] Evernote
