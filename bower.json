@@ -1,7 +1,7 @@
 {
   "name": "sharete",
   "description": "Create your social share buttons easily customizable",
-  "main": "src/sharete.js",
+  "main": "dist/sharete.js",
   "authors": [
     "Nicolas Pio <nicolaspiof@gmail.com> (http://nicolaspio.com.br/)"
   ],
