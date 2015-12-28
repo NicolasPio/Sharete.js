@@ -19,6 +19,8 @@ First add Sharete in your HTML
 Sharete('.bt--facebook').facebook({ appId: '123456789' });
 Sharete('.bt--twitter').twitter();
 Sharete('.bt--gplus').gplus();
+Sharete('.bt--pinterest').pinterest();
+Sharete('.bt--whatsapp').whatsapp();
 ```
 
 ### Complete method:
@@ -37,9 +39,10 @@ Did not find social network what you need? Create a [issue](https://github.com/N
 - [x] Facebook
 - [x] Twitter
 - [x] Google+
+- [x] Pinterest
+- [x] Whatsapp
 
 Todo:
-- [ ] Pinterest
 - [ ] Linkedin
 - [ ] Evernote
 - [ ] Reddit

@@ -13,7 +13,7 @@
     }
 
     this.currentElement = null
-    this.currentUrl = window.location.href
+    this.currentUrl = encodeURI(window.location.href)
     this.pageTitle = document.querySelector('title').text
 
     this.setElement(selector)
@@ -70,8 +70,8 @@
 
     var share = 'https://www.facebook.com/dialog/share'
     share += '?app_id=' + param.appId
-    share += '&href=' + encodeURI(this.currentUrl)
-    share += '&redirect_uri=' + encodeURI(this.currentUrl)
+    share += '&href=' + this.currentUrl
+    share += '&redirect_uri=' + this.currentUrl
 
     this.handleClick(share)
   }
@@ -86,7 +86,7 @@
    */
   Sharete.prototype.twitter = function (params) {
     var share = 'https://twitter.com/share'
-    share += '?url=' + encodeURI(this.currentUrl)
+    share += '?url=' + this.currentUrl
 
     if (params !== undefined) {
       if (typeof text === undefined) {
@@ -106,7 +106,21 @@
 
   Sharete.prototype.gplus = function () {
     var share = 'https://plus.google.com/share?url='
-    share += encodeURI(this.currentUrl)
+    share += this.currentUrl
+
+    this.handleClick(share)
+  }
+
+  Sharete.prototype.pinterest = function () {
+    var share = 'https://pinterest.com/pin/create/button/?url='
+    share += this.currentUrl
+
+    this.handleClick(share)
+  }
+
+  Sharete.prototype.whatsapp = function () {
+    var share = 'whatsapp://send?text='
+    share += this.currentUrl
 
     this.handleClick(share)
   }
