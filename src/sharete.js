@@ -92,7 +92,7 @@
         params.text = ''
       }
 
-      if (typeof text === undefined) {
+      if (typeof hashtags === undefined) {
         params.hashtags = ''
       }
 
