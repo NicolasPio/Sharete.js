@@ -78,25 +78,27 @@
 
   /**
    * Share on Twitter
-   * @param  {Object} params - text, hashtags, via
+   * @param  {Object} params - text, hashtags, via, url
    * @return {void}
    *
-   * todo:
-   * - URL param
    */
   Sharete.prototype.twitter = function (params) {
     var share = 'https://twitter.com/share'
-    share += '?url=' + this.currentUrl
 
     if (params !== undefined) {
-      if (typeof text === undefined) {
+      if (typeof params.text === 'undefined') {
         params.text = ''
       }
 
-      if (typeof text === undefined) {
+      if (typeof params.hashtags === 'undefined') {
         params.hashtags = ''
       }
 
+      if (typeof params.url === 'undefined') {
+        params.url = this.currentUrl
+      }
+
+      share += '?url=' + params.url
       share += '&text=' + params.text
       share += '&hashtags=' + params.hashtags
     }
