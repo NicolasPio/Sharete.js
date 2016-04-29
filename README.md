@@ -30,7 +30,8 @@ API with all possible data so far customizable
 Sharete('.bt--twitter').twitter({
     text: 'Sharete.js is very simple to use',
     hashtags: 'JavaScript, OpenSource', // Separate by comma and  without '#'
-    via: 'NicolasPio' // Mention a user
+    via: 'NicolasPio', // Mention a user
+    url: 'http://www.example.com' // Url custom
 });
 ```
 ## Supported social networks

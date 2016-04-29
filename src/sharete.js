@@ -86,17 +86,21 @@
    */
   Sharete.prototype.twitter = function (params) {
     var share = 'https://twitter.com/share'
-    share += '?url=' + this.currentUrl
 
     if (params !== undefined) {
       if (typeof text === undefined) {
         params.text = ''
       }
 
-      if (typeof text === undefined) {
+      if (typeof hashtags === undefined) {
         params.hashtags = ''
       }
 
+      if (typeof url === undefined) {
+        params.url = this.currentUrl
+      }
+
+      share += '?url=' + params.url
       share += '&text=' + params.text
       share += '&hashtags=' + params.hashtags
     }
