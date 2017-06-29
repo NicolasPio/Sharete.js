@@ -113,9 +113,22 @@
     this.handleClick(share)
   }
 
-  Sharete.prototype.pinterest = function () {
+  Sharete.prototype.pinterest = function (params) {
     var share = 'https://pinterest.com/pin/create/button/?url='
+    var img = document.querySelector('img').getAttribute('src')
+
+    if (document.querySelector('meta[property="og:image"]')) {
+      img = document.querySelector('meta[property="og:image"]').getAttribute('content')
+    }
+
+    if (params !== undefined) {
+      if (typeof params.image !== 'undefined') {
+        img = params.image
+      }
+    }
+
     share += this.currentUrl
+    share += '&media=' + encodeURI(img)
 
     this.handleClick(share)
   }
