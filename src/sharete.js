@@ -83,7 +83,7 @@
    *
    */
   Sharete.prototype.twitter = function (params) {
-    var share = 'https://twitter.com/share'
+    var share = 'https://twitter.com/intent/tweet'
 
     if (params !== undefined) {
       if (typeof params.text === 'undefined') {
